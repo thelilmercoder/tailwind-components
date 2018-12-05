@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Tailwind Accessible Navigation Component (2 Levels)</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .has-submenu ul {
+        display: none;
+      }
+      .has-submenu.open ul {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <div class="block w-full h-12 lg:hidden xl:hidden px-12">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123.29 99.71" height="100%"><defs><style>.cls-1{fill:#086ec1;}</style></defs><title>Logo</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M50.05,0V7.92Q33,16.81,25.7,26.47a34.08,34.08,0,0,0-7.34,21.07q0,6.76,1.93,9.27,1.74,2.71,4.25,2.71a22.26,22.26,0,0,0,6.76-1.45A24.15,24.15,0,0,1,39,56.62a19,19,0,0,1,13.82,5.89,19.59,19.59,0,0,1,5.9,14.4A21.07,21.07,0,0,1,51.6,92.85a25.07,25.07,0,0,1-17.78,6.67q-12.94,0-23.39-11.21T0,60.68q0-19.32,12.85-36T50.05,0Zm64,.58V7.92Q94.5,19.14,88.31,28a35.64,35.64,0,0,0-6.18,20.87c0,3.61.7,6.31,2.12,8.12s2.9,2.7,4.45,2.7a20.84,20.84,0,0,0,6.37-1.54,24.75,24.75,0,0,1,8.51-1.55,19.23,19.23,0,0,1,13.81,5.7,18.73,18.73,0,0,1,5.9,14q0,9.47-7.44,16.42a25.76,25.76,0,0,1-18.27,7q-12.75,0-23-11T64.35,61.26q0-20.3,13-37T114,.58Z"/></g></g></svg>
+    </div>
+    <nav id="site-navigation" class="block w-full w-full" aria-label="Main Navigation">
+      <!-- aria label provides a name for this navigation menu -->
+      <button
+        id="menu-toggle"
+        class="block lg:hidden xl:hidden"
+        aria-controls="main-navigation"
+        aria-expanded="false"
+      >
+        <!-- aria controls identifies which element this button affects -->
+        Primary Menu
+      </button>
+      <div id="main-navigation-container" class="hidden lg:block xl:block py-2">
+        <ul
+          id="main-navigation"
+          class="flex flex-col flex-wrap lg:justify-between xl:justify-between lg:items-center xl:items-center lg:flex-row xl:flex-row list-reset m-0 z-30"
+          aria-expanded="true"
+        >
+          <!-- aria expanded indicates if the menu is open or closed -->
+          <li>
+            <a
+              href="#"
+              class="block lg:inline-block px-4 py-2 no-underline"
+              aria-current="page"
+            >
+              Home
+            </a>
+            <!-- aria current identifies which page we are on right now -->
+          </li>
+          <li>
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline">
+              Link A
+            </a>
+          </li>
+          <li class="has-submenu inline-block relative">
+            <a
+              href="#"
+              class="block lg:inline-block px-4 py-2 no-underline"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Link B &#9663;
+            </a>
+            <ul class="list-reset m-0 lg:pt-8 xl:pt-8 shadow bg-white lg:bg-transparent hidden relative lg:absolute xl:absolute pin-t z-50">
+              <li class="block">
+                <a href="#" class="block px-4 py-2 no-underline"> Link B.1 </a>
+              </li>
+              <li class="block">
+                <a href="#" class="block px-4 py-2 no-underline"> Link B.2 </a>
+              </li>
+              <li class="block">
+                <a href="#" class="block px-4 py-2 no-underline"> Link B.3 </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="w-48 px-12 hidden lg:block xl:block">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123.29 99.71" width="100%"><defs><style>.cls-1{fill:#086ec1;}</style></defs><title>Logo</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M50.05,0V7.92Q33,16.81,25.7,26.47a34.08,34.08,0,0,0-7.34,21.07q0,6.76,1.93,9.27,1.74,2.71,4.25,2.71a22.26,22.26,0,0,0,6.76-1.45A24.15,24.15,0,0,1,39,56.62a19,19,0,0,1,13.82,5.89,19.59,19.59,0,0,1,5.9,14.4A21.07,21.07,0,0,1,51.6,92.85a25.07,25.07,0,0,1-17.78,6.67q-12.94,0-23.39-11.21T0,60.68q0-19.32,12.85-36T50.05,0Zm64,.58V7.92Q94.5,19.14,88.31,28a35.64,35.64,0,0,0-6.18,20.87c0,3.61.7,6.31,2.12,8.12s2.9,2.7,4.45,2.7a20.84,20.84,0,0,0,6.37-1.54,24.75,24.75,0,0,1,8.51-1.55,19.23,19.23,0,0,1,13.81,5.7,18.73,18.73,0,0,1,5.9,14q0,9.47-7.44,16.42a25.76,25.76,0,0,1-18.27,7q-12.75,0-23-11T64.35,61.26q0-20.3,13-37T114,.58Z"/></g></g></svg>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline ">
+              Link C
+            </a>
+          </li>
+          <li>
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline ">
+              Link D
+            </a>
+          </li>
+          <li>
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline ">
+              Link E
+            </a>
+          </li>  
+        </ul>
+      </div>
+    </nav>
+    <script>
+      /**
+       * Show or Hide Menu
+       *
+       * Handles toggling the navigation menu for small screens with correct aria labelling
+       *
+       */
+
+      const menuToggle = document.querySelector("#menu-toggle");
+      const menuContainer = document.querySelector(
+        "#main-navigation-container"
+      );
+
+      menuToggle.addEventListener("click", function() {
+        menuContainer.classList.toggle("hidden");
+        if (menuContainer.classList.contains("hidden")) {
+          menuToggle.setAttribute("aria-expanded", "false");
+        } else {
+          menuToggle.setAttribute("aria-expanded", "true");
+        }
+      });
+
+      /**
+       * Delay Submenu Closing
+       *
+       * Slow the immediate closing of submenu items when the mouse leaves the area
+       * Makes it easier to use the menu when navigation by a mouse is not very precise
+       *
+       */
+      var timer;
+      var menuItems = document.querySelectorAll("li.has-submenu");
+      Array.prototype.forEach.call(menuItems, function(el, i) {
+        el.addEventListener("mouseover", function(event) {
+          this.classList.add("open");
+          clearTimeout(timer);
+        });
+        el.addEventListener("mouseout", function(event) {
+          timer = setTimeout(function(event) {
+            document
+              .querySelector(".has-submenu.open")
+              .classList.remove("open");
+          }, 600);
+        });
+      });
+
+      /**
+       * Parent Anchor Toggles Submenu
+       *
+       */
+      var menuItems = document.querySelectorAll("li.has-submenu");
+      Array.prototype.forEach.call(menuItems, function(el, i) {
+        el.querySelector("a").addEventListener("click", function(event) {
+          if (!this.parentNode.classList.contains("open")) {
+            this.parentNode.classList.add("open");
+            this.setAttribute("aria-expanded", "true");
+          } else {
+            this.parentNode.classList.remove("open");
+            this.setAttribute("aria-expanded", "false");
+          }
+          event.preventDefault();
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
