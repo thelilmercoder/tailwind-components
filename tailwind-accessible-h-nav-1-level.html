@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Tailwind Accessible Navigation Component (1 Level)</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style></style>
+  </head>
+
+  <body class="">
+    <nav id="site-navigation" class="block w-full" aria-label="Main Navigation">
+      <!-- aria label provides a name for this navigation menu -->
+      <button
+        id="menu-toggle"
+        class="block lg:hidden xl:hidden"
+        aria-controls="main-navigation"
+        aria-expanded="false"
+      >
+        <!-- aria controls identifies which element this button affects -->
+        Primary Menu
+      </button>
+      <div id="main-navigation-container" class="hidden lg:block xl:block">
+        <ul
+          id="main-navigation"
+          class="flex flex-col flex-wrap lg:flex-row xl:flex-row list-reset m-0"
+          aria-expanded="true"
+        >
+          <!-- aria expanded indicates if the menu is open or closed -->
+          <li class="inline-block">
+            <a
+              href="#"
+              class="block lg:inline-block px-4 py-2 no-underline"
+              aria-current="page"
+              >Home</a
+            >
+            <!-- aria current identifies which page we are on right now -->
+          </li>
+          <li class="inline-block">
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline"
+              >Link A</a
+            >
+          </li>
+          <li class="inline-block">
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline"
+              >Link B</a
+            >
+          </li>
+          <li class="inline-block">
+            <a href="#" class="block lg:inline-block px-4 py-2 no-underline "
+              >Link C</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+      /**
+       * Show or Hide Menu
+       *
+       * Handles toggling the navigation menu for small screens with correct aria labelling
+       *
+       */
+
+      const menuToggle = document.querySelector("#menu-toggle");
+      const menuContainer = document.querySelector(
+        "#main-navigation-container"
+      );
+
+      menuToggle.addEventListener("click", function() {
+        menuContainer.classList.toggle("hidden");
+        if (menuContainer.classList.contains("hidden")) {
+          menuToggle.setAttribute("aria-expanded", "false");
+        } else {
+          menuToggle.setAttribute("aria-expanded", "true");
+        }
+      });
+    </script>
+  </body>
+</html>
