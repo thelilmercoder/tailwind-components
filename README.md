@@ -1,14 +1,13 @@
 # An Accessible Tailwind Navigation Menu
 
-This is a horizontal nav menu using floats to create a mostly tailwinds navigation menu for your webpages.
+This is a horizontal nav menu using flexbox to create a tailwinds navigation menus with aria labelling for WCAG 2.0 compliance
 
 ## Prerequisites
 
 Sample uses the Tailwind CDN
 
 ## Built With
-Large chunks of this were pulled from a WordPress template available from Auttomatic then re-written to use the Tailwind Framework.
-* [Underscores Boilerplate WordPress Theme](http://www.underscores.me) - Menu Behaviour
+This relies on the Tailwind CSS Framework combined with Vanilla JS
 * [Tailwind Framework](https://www.tailwindcss.com/) - CSS Framework 
 
 ## Author
