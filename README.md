@@ -2,6 +2,10 @@
 
 This is a horizontal nav menu using flexbox to create a tailwinds navigation menus with aria labelling for WCAG 2.0 compliance
 
+## Live Demos
+* [Basic One Level Navigation](https://codepen.io/thunderella42/pen/VVJpKo)
+* [Two Levels Deep with a Logo in the Center](https://codepen.io/thunderella42/pen/xQoPPp)
+
 ## Prerequisites
 
 Sample uses the Tailwind CDN
